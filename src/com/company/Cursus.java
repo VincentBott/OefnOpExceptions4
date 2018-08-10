@@ -5,6 +5,7 @@ public class Cursus {
     private String[] cursisten;
 
     private int teller = 0;
+
     private int maxCursisten;
 
 
@@ -17,7 +18,7 @@ public class Cursus {
 
     public void addCursist(String naam) {
 
-        if (teller == maxCursisten) throw new IllegalArgumentException("Maximum aantal cursisten bereikt.");     //   0     1      -1
+        if (teller == cursisten.length) throw new IllegalArgumentException("Maximum aantal cursisten bereikt.");
 
 
         cursisten[teller] = naam;
@@ -32,6 +33,8 @@ public class Cursus {
 
     public String getCursist(int cursist) {
 
+        if (cursist >= cursisten.length) throw new IllegalArgumentException("Cursist niet gevonden.");
+
         return cursisten[cursist];
     }
 
@@ -39,5 +42,13 @@ public class Cursus {
 
         cursisten[teller] = "";
     }
+
+/*
+    private int indexOf(String naam) {
+        int index
+
+    }
+*/
+
 }
 
