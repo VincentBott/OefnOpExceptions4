@@ -1,5 +1,6 @@
 package com.company;
 
+
 public class Cursus {
 
     private String[] cursisten;
@@ -28,6 +29,7 @@ public class Cursus {
 
 
     public int getAantalCursisten() {
+
         return teller;
     }
 
@@ -38,10 +40,25 @@ public class Cursus {
         return cursisten[cursist];
     }
 
-    public void verwijderCursist(String namen) {
 
-        cursisten[teller] = "";
+    public void verwijderCursist(String naam) {
+
+        for (int i=0; i<cursisten.length; i++) {
+
+
+            if (naam.equalsIgnoreCase(cursisten[i])) {
+
+                System.out.println(cursisten[i]);
+                cursisten[i] = " ";
+
+            } else // (cursisten[i].equalsIgnoreCase(" "))
+                throw new IllegalArgumentException("Cursist niet gevonden.");
+
+
+        }
     }
+
+}
 
 /*
     private int indexOf(String naam) {
@@ -49,6 +66,3 @@ public class Cursus {
 
     }
 */
-
-}
-

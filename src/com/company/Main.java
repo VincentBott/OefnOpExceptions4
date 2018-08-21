@@ -9,38 +9,43 @@ public class Main {
 
         Cursus c = new Cursus(MAXCURSISTEN);
 
-        try{
+        try {
             for(String naam: namen){
                 c.addCursist(naam);
             }
-        }catch(IllegalArgumentException ex){
+        } catch(IllegalArgumentException ex){
             System.out.println("Foutmelding: " + ex.getMessage());
         }
 
         System.out.println("De cursisten:");
 
-        for(int i=0;i<c.getAantalCursisten();i++){
+        for (int i=0;i<c.getAantalCursisten();i++){
             System.out.println(c.getCursist(i));
         }
+
         System.out.println("test op ongeldige index voor opvragen");
 
-        try{
+        try {
             System.out.printf(c.getCursist(MAXCURSISTEN));
-        }catch(IllegalArgumentException ex){
+        } catch (IllegalArgumentException ex){
             System.out.println("Foutmelding: " + ex.getMessage());
         }
 
         System.out.println("Test op verwijderen cursist");
+
+
         c.verwijderCursist(namen[1]);
 
-        for(int i=0;i<c.getAantalCursisten();i++){
+        for (int i=0;i<c.getAantalCursisten();i++){
             System.out.println(c.getCursist(i));
         }
+
         System.out.println("Test op verwijderen onbestaande cursist");
 
         try {
             c.verwijderCursist(namen[1]);
-        }catch(IllegalArgumentException ex){
+        } catch(IllegalArgumentException ex){
+
             System.out.println("Foutmelding: " + ex.getMessage());
         }
     }
